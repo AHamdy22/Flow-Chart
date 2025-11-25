@@ -206,7 +206,7 @@ int main()
 
 	//Drawing (normal) (empty) conditional statement --> STATE 1
 	P.x = 100;	P.y = 100;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ");
+	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing (highlighted) (empty) conditional statement --> STATE 2
 	P.x = 300;	P.y = 100;
@@ -214,11 +214,11 @@ int main()
 
 	//Drawing a resized empty conditional statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawCondition(P, 100, UI.ASSGN_HI, " x = 3 ");
+	pOut->DrawCondition(P, 100, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing edited (normal) (non-empty) conditional statement --> STATE 3
 	P.x = 100;	P.y = 300;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ");
+	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing (highlighted) (non-empty) conditional statement --> STATE 4
 	P.x = 300;	P.y = 300;
@@ -236,7 +236,7 @@ int main()
 	////////////
 
 	P.x = 100;	P.y = 100;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ");
+	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing (highlighted) (empty) Read statement --> STATE 2
 	P.x = 300;	P.y = 100;
@@ -244,11 +244,11 @@ int main()
 
 	//Drawing a resized empty Read statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawRead(P, 150, UI.ASSGN_HI, " Read x ");
+	pOut->DrawRead(P, 150, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
 	P.x = 100;	P.y = 300;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ");
+	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
 	P.x = 300;	P.y = 300;
@@ -266,7 +266,7 @@ int main()
 	////////////
 
 	P.x = 100;	P.y = 100;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ");
+	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing (highlighted) (empty) Write statement --> STATE 2
 	P.x = 300;	P.y = 100;
@@ -274,11 +274,11 @@ int main()
 
 	//Drawing a resized empty Write statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawWrite(P, 150, UI.ASSGN_HI, " Print x ");
+	pOut->DrawWrite(P, 150, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing edited (normal) (non-empty) Write statement --> STATE 3
 	P.x = 100;	P.y = 300;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ");
+	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing (highlighted) (non-empty) Write statement --> STATE 4
 	P.x = 300;	P.y = 300;
@@ -297,7 +297,7 @@ int main()
 	////////////
 
 	P.x = 100;	P.y = 100;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ");
+	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ", false);
 
 	//Drawing (highlighted) (empty) Read statement --> STATE 2
 	P.x = 300;	P.y = 100;
@@ -305,11 +305,11 @@ int main()
 
 	//Drawing a resized empty Read statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawStart(P, 200, UI.START_HI, " Start ");
+	pOut->DrawStart(P, 200, UI.START_HI, " Start ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
 	P.x = 100;	P.y = 300;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ");
+	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ", false);
 
 	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
 	P.x = 300;	P.y = 300;
@@ -329,7 +329,7 @@ int main()
 
 	P.x = 100;  P.y = 100;
 	P2.x = 100;  P2.y = 250;
-	pOut->DrawConnector(P, P2);
+	pOut->DrawConnector(P, P2, false);
 
 	P.x = 150;  P.y = 100;
 	P2.x = 150;  P2.y = 250;
