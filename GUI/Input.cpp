@@ -77,16 +77,35 @@ ActionType Input::GetUserAction() const
 		{	
 			//Check whick Menu item was clicked
 			//This assumes that menu items are lined up horizontally
-			int ClickedItem = (x / UI.MenuItemWidth);
+			int ClickedItem = (x / 65);
+
 			//Divide x coord of the point clicked by the menu item width (int division)
 			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
 			switch (ClickedItem)
 			{
+			case ITM_START:return ADD_START;
+			case ITM_DECLARE:return ADD_DECLARE_VARIABLE;
 			case ITM_VALUE_ASSIGN: return ADD_VALUE_ASSIGN;
+			case ITM_VARIABLE_ASSIGN: return ADD_VAR_ASSIGN;
+			case ITM_OPERATOR_ASSIGN: return ADD_OPER_ASSIGN;
 			case ITM_COND: return ADD_CONDITION;
-			case ITM_EXIT: return EXIT;	
+			case ITM_READ: return ADD_READ;
+			case ITM_WRITE: return ADD_WRITE;
+			case ITM_CONNECTOR: return ADD_CONNECTOR;
+			case ITM_END: return ADD_END;
+			case ITM_SELECT + 2:return SELECT;	//Where 2 is the gap between the first 10 icons & the following 7 icons
+			case ITM_EDIT + 2:return EDIT_STAT;
+			case ITM_DELETE + 2:return DEL;
+			case ITM_COPY + 2:return COPY;
+			case ITM_CUT + 2:return CUT;
+			case ITM_PASTE + 2:return PASTE;
+			case ITM_SWITCH_TO_SIM + 2:return SWITCH_SIM_MODE;
+			case ITM_SAVE + 10:return SAVE;	//Where 10 is the distance between the first 10 icons & the last 3 icons
+			case ITM_LOAD + 10:return LOAD;
+			case ITM_EXIT + 10:return EXIT;
 			default: return DSN_TOOL;
 			}
+
 		}
 	
 		//[2] User clicks on the drawing area
@@ -103,9 +122,31 @@ ActionType Input::GetUserAction() const
 	}
 	else	//Application is in Simulation mode
 	{
+		//[1] User clicks on the tool bar
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
 
-		// TODO: This should be changed after creating the compelete simulation bar 
-		return SWITCH_DSN_MODE;	// THIS SHOULD BE CHANGED
+			int ClickedItem = (x / 65);
+
+			switch (ClickedItem)
+			{
+			case ITM_VALIDATE:return VALIDATE;
+			case ITM_RUN:return RUN;
+			case ITM_SWITCH_TO_DESIGN:return SWITCH_DSN_MODE;
+			default: return SIM_TOOL;
+			}
+		}
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			if (x <= UI.DrawingAreaWidth)
+				return DRAWING_AREA;
+			else
+				return OUTPUT_AREA;
+		}
+
+		//[3] User clicks on the status bar
+		return STATUS;
 	}
 
 }

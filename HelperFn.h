@@ -1,4 +1,4 @@
-#include<sstream>
+
 #pragma once
 
 // this file contains the functions that don't logically belong to any class
@@ -17,4 +17,4 @@ enum OpType
 
 bool IsValue (string input);
 bool IsVariable (string input);
-OpType ValueORVariable (string input);
+OpType ValueOrVariable (string input);
