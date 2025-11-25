@@ -83,7 +83,7 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	MenuItemImages[ITM_SWITCH_TO_SIM] = "images\\switchtosim.jpg";
 	MenuItemImages[ITM_SAVE] = "images\\save.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\load.jpg";
-	MenuItemImages[ITM_EXIT] = "images\\exit.jpg";
+	MenuItemImages[ITM_EXIT1] = "images\\exit.jpg";
 
 
 	//Draw menu item one image at a time
@@ -117,9 +117,11 @@ void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 	SimMenuItemImages[ITM_VALIDATE] = "images\\validate.jpg";
 	SimMenuItemImages[ITM_RUN] = "images\\run.jpg";
 	SimMenuItemImages[ITM_SWITCH_TO_DESIGN] = "images\\switchtodesign.jpg";
+	SimMenuItemImages[ITM_EXIT2] = "images\\exit.jpg";
 
-	for (int i = 0; i < SIM_ITM_CNT; i++)
+	for (int i = 0; i < SIM_ITM_CNT - 1; i++)
 		pWind->DrawImage(SimMenuItemImages[i], i * 65, 5, UI.MenuItemWidth, 40);
+	pWind->DrawImage(SimMenuItemImages[ITM_EXIT2], 22 * 65, 5, UI.MenuItemWidth, 40);
 
 	//Draw a line under the toolbar
 	pWind->SetPen(DODGERBLUE, 3);
@@ -171,6 +173,8 @@ void Output::DrawString(const int iX, const int iY, const string Text)
 //======================================================================================//
 
 //Draw assignment statement and write the "Text" on it
+int stringwidth, stringheight;
+
 void Output::DrawAssign(Point Left, int width, int height, string Text, bool Selected)
 {
 	if(Selected)	//if stat is selected, it should be highlighted
@@ -183,13 +187,128 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 		
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
-	pWind->DrawString(Left.x+width/4, Left.y + height/4, Text);
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 2), Left.y + (height / 2) - (stringheight / 2), Text);
+	
 }
 
 //TODO: Add similar functions for drawing all other statements.
 //		e.g. DrawDeclareStat(.....), DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 //		Decide the parameters that should be passed to each of them
 	
+void Output::DrawDeclare(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+
+	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
+
+
+	pWind->SetPen(BLACK, 2);
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 2), Left.y + (height / 2) - (stringheight / 2), Text);
+}
+
+
+void Output::DrawStart(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+
+	pWind->SetPen(BLACK, 2);
+
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 2), Left.y + (height / 2) - (stringheight / 2), Text);
+
+}
+
+
+void Output::DrawEnd(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+
+
+	pWind->SetPen(BLACK, 2);
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 2), Left.y + (height / 2) - (stringheight / 2), Text);
+}
+
+void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+	int X[4] = { Left.x,Left.x + width,Left.x + width - (width / 4),Left.x - (width / 4) };
+
+	int Y[4] = { Left.y,Left.y,Left.y + height, Left.y + height };
+
+	pWind->DrawPolygon(X, Y, 4, FRAME);
+
+	pWind->SetPen(BLACK, 2);
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 1.5), Left.y + (height / 2) - (stringheight / 2), Text);
+}
+
+void Output::DrawWrite(Point Left, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+	int X[4] = { Left.x,Left.x + width,Left.x + width - (width / 4),Left.x - (width / 4) };
+
+	int Y[4] = { Left.y,Left.y,Left.y + height, Left.y + height };
+
+	pWind->DrawPolygon(X, Y, 4, FRAME);
+
+	pWind->SetPen(BLACK, 2);
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 1.5), Left.y + (height / 2) - (stringheight / 2), Text);
+}
+
+void Output::DrawCondition(Point Top, int width, int height, string Text, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+	int X[4] = { Top.x,Top.x + (width / 2),Top.x ,Top.x - (width / 2) };
+
+	int Y[4] = { Top.y,Top.y + (height / 2),Top.y + height, Top.y + (height / 2) };
+
+	pWind->DrawPolygon(X, Y, 4, FRAME);
+
+	pWind->SetPen(BLACK, 2);
+
+	pWind->GetStringSize(stringwidth, stringheight, Text);
+	pWind->DrawString(Top.x - (stringwidth / 2), Top.y + (height / 2) - (stringheight / 2), Text);
+
+}
+
 //TODO: Add DrawConnector function
 
 
@@ -208,7 +327,7 @@ void Output::DrawConnector(Point start, Point end, bool Selected)
  
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////
 Output::~Output()
 {
 	delete pWind;

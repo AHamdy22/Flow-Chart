@@ -102,7 +102,7 @@ ActionType Input::GetUserAction() const
 			case ITM_SWITCH_TO_SIM + 2:return SWITCH_SIM_MODE;
 			case ITM_SAVE + 10:return SAVE;	//Where 10 is the distance between the first 10 icons & the last 3 icons
 			case ITM_LOAD + 10:return LOAD;
-			case ITM_EXIT + 10:return EXIT;
+			case ITM_EXIT1 + 10:return EXIT;
 			default: return DSN_TOOL;
 			}
 
@@ -133,6 +133,7 @@ ActionType Input::GetUserAction() const
 			case ITM_VALIDATE:return VALIDATE;
 			case ITM_RUN:return RUN;
 			case ITM_SWITCH_TO_DESIGN:return SWITCH_DSN_MODE;
+			case ITM_EXIT2:return EXIT;
 			default: return SIM_TOOL;
 			}
 		}

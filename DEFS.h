@@ -73,7 +73,7 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 	ITM_SWITCH_TO_SIM,
 	ITM_SAVE,
 	ITM_LOAD,
-	ITM_EXIT,		//Exit
+	ITM_EXIT1,		//Exit
 	
 
 	DSN_ITM_CNT		//no. of design menu items ==> This should be the last line in this enum
@@ -85,8 +85,8 @@ enum SimMenuItem //The items of the simulation menu
 	//Note: Items are ordered here as they appear in menu
 	ITM_VALIDATE,	//Validate
 	ITM_RUN,	    //Run
-	ITM_SWITCH_TO_DESIGN,
-
+	ITM_SWITCH_TO_DESIGN, //Switch to Design
+	ITM_EXIT2,		//Exit
 	
 	SIM_ITM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
 	
