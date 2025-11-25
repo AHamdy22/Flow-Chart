@@ -20,7 +20,7 @@ Output::Output()
 	UI.HighlightColor = RED;
 	UI.MsgColor = NAVY;
 
-	UI.ASSGN_WDTH = 150;
+	UI.ASSGN_WDTH = 165;
 	UI.ASSGN_HI = 50;
 	UI.START_WDTH = 100;
 	UI.START_HI = 50;

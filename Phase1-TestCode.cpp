@@ -182,15 +182,15 @@ int main()
 
 	//Drawing a resized empty assignment statement
 	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = x + 3 ");
+	pOut->DrawAssign(P, 100, UI.ASSGN_HI, " = x + 3 ");
 
 	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
 	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3 ");
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3");
 
 	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
 	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3 ", true);
+	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3", true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
