@@ -13,7 +13,6 @@ enum  MODE	//Modes of operation
 enum ActionType // The actions supported
 {
 	ADD_START, //Add start statement
-	ADD_END,   //Add end statement
 	ADD_DECLARE_VARIABLE, // Add  declare variable statement
 	ADD_VALUE_ASSIGN, //Add value assignment statement
 	ADD_VAR_ASSIGN,	  //Add variable assignment statement
@@ -24,6 +23,7 @@ enum ActionType // The actions supported
 
 	ADD_CONNECTOR, //Add a connector between two statements
 	
+	ADD_END,   //Add end statement
 	SELECT,		//Select a statement, a connector
 	EDIT_STAT,	//Edit a statement
 
@@ -31,35 +31,37 @@ enum ActionType // The actions supported
 	COPY,  //Copy a figure
 	CUT,   //Cut a figure
 	PASTE, //Paste a figure
+	SWITCH_SIM_MODE,	//Switch to simulatiom mode
 
 	SAVE,		//Save the whole graph to a file
 	LOAD,		//Load a graph from a file
-
-	SWITCH_DSN_MODE,	//Switch to Design mode
-	SWITCH_SIM_MODE,	//Switch to simulatiom mode
-
 	EXIT,		//Exit the application
 
 
-	//TODO: ADD THE ACTIONS OF SIMULATION MODE
+	VALIDATE,
+	RUN,
+	SWITCH_DSN_MODE,	//Switch to Design mode
 
 
 	DRAWING_AREA,  //A click on the drawing area
 	OUTPUT_AREA,   //A click on the output area
 	DSN_TOOL,	   //A click on an empty place in the design tool bar
+	SIM_TOOL,	   //A click on an empty place in the simulation tool bar
 	STATUS 		   //A click on the status bar
 };
 
-// TODO: you should add more items
 enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
 	ITM_START,
-	ITM_VALUE_ASSIGN,//simple assignment statement
 	ITM_DECLARE,
+	ITM_VALUE_ASSIGN,//simple assignment statement
+	ITM_VARIABLE_ASSIGN,
+	ITM_OPERATOR_ASSIGN,
 	ITM_COND,		//conditional statement
-	ITM_INPUTOUTPUT,
+	ITM_READ,
+	ITM_WRITE,
 	ITM_CONNECTOR,
 	ITM_END,
 	ITM_SELECT,

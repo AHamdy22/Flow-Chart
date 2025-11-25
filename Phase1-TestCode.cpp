@@ -10,7 +10,6 @@ int main()
 {
 
 	Point P;
-	Point P2;
 
 	//Create Input and Output objects to test
 	Output *pOut = new Output();
@@ -32,66 +31,10 @@ int main()
 	// 5- -- REPEAT the same first 3 steps to test: ValueORVariable(...) helper function
 	////////////
 
-	pOut->PrintMessage("IsValue test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
-	pOut->ClearStatusBar();
-
-	if (IsValue(pIn->GetString(pOut)))
-	{
-		pOut->PrintMessage("This is a valid value");
-		pIn->GetPointClicked(P);
-	}
-	else
-	{
-		pOut->PrintMessage("This is not a valid value");
-		pIn->GetPointClicked(P);
-	}
-
-	pOut->PrintMessage("IsVariable test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
-	pOut->ClearStatusBar();
-
-	if (IsVariable(pIn->GetString(pOut)))
-	{
-		pOut->PrintMessage("This is a valid variable name");
-		pIn->GetPointClicked(P);
-	}
-	else
-	{
-		pOut->PrintMessage("This is not a valid variable name");
-		pIn->GetPointClicked(P);
-	}
-
-	pOut->PrintMessage("ValueORVariable test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
-	pOut->ClearStatusBar();
-
-	OpType type = ValueORVariable(pIn->GetString(pOut));
-
-	if (type == VALUE_OP)
-	{
-		pOut->PrintMessage("This is a valid value");
-		pIn->GetPointClicked(P);
-
-	}
-	else
-		if (type == VARIABLE_OP)
-		{
-			pOut->PrintMessage("This is a valid variable name");
-			pIn->GetPointClicked(P);
-		}
-		else
-			if (type == INVALID_OP)
-			{
-				pOut->PrintMessage("This is not a valid valid value nor a variable name");
-				pIn->GetPointClicked(P);
-			}
-
 	//Starting the input and output classes test
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
 	pIn->GetPointClicked(P);	//Wait for any click
 	
-
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 1:	Create The FULL Tool bar, the drawing area, the output bar and the status bar	
 	//			This has already been done through the constrcutor of class Output
@@ -147,54 +90,8 @@ int main()
 	//TODO: Add code to draw other types of assignment statements (Variable and Operator) here in ALL STATES
 	////////////
 	
-	//Drawing (normal) (empty) assignment statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ");
-
-	//Drawing (highlighted) (empty) assignment statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ", true);
-
-	//Drawing a resized empty assignment statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = x ");
-
-	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ");
-
-	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ", true);
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
-
-
-
-	//Drawing (normal) (empty) assignment statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ");
-
-	//Drawing (highlighted) (empty) assignment statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ", true);
-
-	//Drawing a resized empty assignment statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = x + 3 ");
-
-	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3 ");
-
-	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3 ", true);
-
-	pIn->GetPointClicked(P);	//Wait for any click
-	pOut->ClearDrawArea();
-
 
 	/// 2.3- Conditional statement test
 	//Drawing Conditional statements in all posible states
@@ -203,26 +100,6 @@ int main()
 	////////////
 	//TODO: Add code to draw different (Conditional) statements here in ALL STATES
 	////////////
-
-	//Drawing (normal) (empty) conditional statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ");
-
-	//Drawing (highlighted) (empty) conditional statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
-
-	//Drawing a resized empty conditional statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawCondition(P, 100, UI.ASSGN_HI, " x = 3 ");
-
-	//Drawing edited (normal) (non-empty) conditional statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ");
-
-	//Drawing (highlighted) (non-empty) conditional statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -235,25 +112,6 @@ int main()
 	//TODO: Add code to draw different (Read) statements here in ALL STATES
 	////////////
 
-	P.x = 100;	P.y = 100;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ");
-
-	//Drawing (highlighted) (empty) Read statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
-
-	//Drawing a resized empty Read statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawRead(P, 150, UI.ASSGN_HI, " Read x ");
-
-	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ");
-
-	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -264,25 +122,6 @@ int main()
 	////////////
 	//TODO: Add code to draw different (Write) statements here in ALL STATES
 	////////////
-
-	P.x = 100;	P.y = 100;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ");
-
-	//Drawing (highlighted) (empty) Write statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
-
-	//Drawing a resized empty Write statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawWrite(P, 150, UI.ASSGN_HI, " Print x ");
-
-	//Drawing edited (normal) (non-empty) Write statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ");
-
-	//Drawing (highlighted) (non-empty) Write statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
@@ -296,25 +135,6 @@ int main()
 	//TODO: Add code to draw different (Start & End) statements here  in ALL STATES
 	////////////
 
-	P.x = 100;	P.y = 100;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ");
-
-	//Drawing (highlighted) (empty) Read statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " End ", true);
-
-	//Drawing a resized empty Read statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawStart(P, 200, UI.START_HI, " Start ");
-
-	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ");
-
-	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " End ", true);
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
@@ -327,22 +147,13 @@ int main()
 	//TODO: Add code to draw different (Connectors) here:  Normal and Highlighted
 	////////////
 
-	P.x = 100;  P.y = 100;
-	P2.x = 100;  P2.y = 250;
-	pOut->DrawConnector(P, P2);
-
-	P.x = 150;  P.y = 100;
-	P2.x = 150;  P2.y = 250;
-	pOut->DrawConnector(P, P2, true);
-
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.8- Draw String TEST
 	//Drawing a String in a specific location
 	pOut->PrintMessage("Drawing A String, Click to continue");
-	pIn->GetPointClicked(P);
-	pOut->ClearStatusBar();
+	
 	//Note: the function of this drawing is already implemented in Output class , you only need to call it
 
 	////////////
@@ -350,8 +161,6 @@ int main()
 	// 1- Get a String from the user --> using the already-implemented Input::GetString(...) fn
 	// 2- Draw that string in location (400, 200) --> using the already-implemented Output::DrawString(...) fn
 	////////////
-
-	pOut->DrawString(400, 200, pIn->GetString(pOut));
 
 	pIn->GetPointClicked(P);	//Wait for any click
 	pOut->ClearDrawArea();

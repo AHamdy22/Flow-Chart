@@ -29,19 +29,12 @@ public:
 	// -- Statements Drawing Functions
 	void DrawAssign(Point Left, int width, int height, string Text, bool Selected = false);
 
-	
 	//TODO: Add similar functions for drawing all other statements.
 	//		e.g. DrawDeclareStat(.....), DrawCondtionalStat(......), DrawStart(......), DrawEnd(.......), ...etc
 	//		Decide the parameters that should be passed to each of them
-	void DrawDeclare(Point Left, int width, int height, string Text, bool Selected = false);
-	void DrawStart(Point Left, int width, int height, string Text, bool Selected = false);
-	void DrawEnd(Point Left, int width, int height, string Text, bool Selected = false);
-	void DrawRead(Point Left, int width, int height, string Text, bool Selected = false);
-	void DrawWrite(Point Left, int width, int height, string Text, bool Selected = false);
-	void DrawCondition(Point Left, int width, int height, string Text, bool Selected = false);
-
+	
 	//TODO: Add DrawConnector function
-	void DrawConnector(Point start, Point end, bool Selected = false);
+
 	~Output();
 };
 

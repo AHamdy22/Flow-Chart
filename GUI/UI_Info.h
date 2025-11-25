@@ -28,10 +28,6 @@ struct UI_Info	//User Interface Info.
 
 	int ASSGN_WDTH;		//Assignment statement default width
 	int ASSGN_HI;		//Assignment statement default height
-	int START_WDTH;
-	int START_HI;
-	int READ_WDTH;
-	int READ_HI;
 	
 }UI;	//create a single global object UI
 
