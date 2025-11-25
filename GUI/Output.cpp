@@ -192,7 +192,23 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 	
 //TODO: Add DrawConnector function
 
-//////////////////////////////////////////////////////////////////////////////////////////
+
+void Output::DrawConnector(Point start, Point end, bool Selected)
+{
+	if (Selected)
+		pWind->SetPen(UI.HighlightColor, 3);
+	else
+		pWind->SetPen(UI.DrawColor, 3);
+
+	pWind->DrawLine(start.x, start.y, end.x, end.y);
+
+}
+
+
+ 
+
+
+
 Output::~Output()
 {
 	delete pWind;
