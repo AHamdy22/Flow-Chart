@@ -84,7 +84,7 @@ int main()
 		else
 			if (type == INVALID_OP)
 			{
-				pOut->PrintMessage("This is not a valid valid value nor a variable name");
+				pOut->PrintMessage("This is not a valid value nor a variable name");
 				pIn->GetPointClicked(Pi);
 			}
 
