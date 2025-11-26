@@ -5,7 +5,7 @@ Output::Output()
 {
 	//Initialize user interface parameters
 	UI.width = 1510;
-	UI.height = 800;
+	UI.height = 600;
 	UI.wx = 0;
 	UI.wy =0;
 
@@ -314,14 +314,36 @@ void Output::DrawCondition(Point Top, int width, int height, string Text, bool S
 }
 
 
-void Output::DrawConnector(Point start, Point end, bool Selected)
+void Output::DrawConnector(Point start, Point end, direction d, bool Selected)
 {
 	if (Selected)
 		pWind->SetPen(UI.HighlightColor, 3);
 	else
 		pWind->SetPen(UI.DrawColor, 3);
-
-	pWind->DrawLine(start.x, start.y, end.x, end.y);
+	if (d == UP)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+		pWind->DrawTriangle(end.x, end.y, end.x + 10, end.y + 10, end.x - 10, end.y + 10, FILLED);
+	}
+	else if (d == DOWN)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+		pWind->DrawTriangle(end.x, end.y, end.x + 10, end.y - 10, end.x - 10, end.y - 10, FILLED);
+	}
+	else if(d==RIGHT)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+		pWind->DrawTriangle(end.x, end.y, end.x - 10, end.y - 10, end.x - 10, end.y + 10, FILLED);
+	}
+	else if (d == LEFT)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+		pWind->DrawTriangle(end.x, end.y, end.x + 10, end.y - 10, end.x + 10, end.y + 10, FILLED);
+	}
+	else if (d == NoDirection)
+	{
+		pWind->DrawLine(start.x, start.y, end.x, end.y);
+	}
 
 }
 
