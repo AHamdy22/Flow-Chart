@@ -35,7 +35,7 @@ public:
 	void DrawWrite(Point Left, int width, int height, string Text, bool Selected);
 	void DrawCondition(Point Top, int width, int height, string Text, bool Selected);
 	void DrawConnector(Point start, Point end, bool Selected);
-	
+
 
 	~Output();
 };

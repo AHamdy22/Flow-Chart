@@ -309,8 +309,6 @@ void Output::DrawCondition(Point Top, int width, int height, string Text, bool S
 
 }
 
-//TODO: Add DrawConnector function
-
 
 void Output::DrawConnector(Point start, Point end, bool Selected)
 {
