@@ -9,8 +9,9 @@
 int main()
 {
 
+	Point Pi;
+	Point Pf;
 	Point P;
-	Point P2;
 
 	//Create Input and Output objects to test
 	Output* pOut = new Output();
@@ -21,7 +22,7 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////////
 
 	pOut->PrintMessage("TEST0: Testing the helper functions");
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 
 	////////////
 	//TODO: Add code here to 
@@ -33,37 +34,37 @@ int main()
 	////////////
 
 	pOut->PrintMessage("IsValue test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(Pi);
 	pOut->ClearStatusBar();
 
 	if (IsValue(pIn->GetString(pOut)))
 	{
 		pOut->PrintMessage("This is a valid value");
-		pIn->GetPointClicked(P);
+		pIn->GetPointClicked(Pi);
 	}
 	else
 	{
 		pOut->PrintMessage("This is not a valid value");
-		pIn->GetPointClicked(P);
+		pIn->GetPointClicked(Pi);
 	}
 
 	pOut->PrintMessage("IsVariable test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(Pi);
 	pOut->ClearStatusBar();
 
 	if (IsVariable(pIn->GetString(pOut)))
 	{
 		pOut->PrintMessage("This is a valid variable name");
-		pIn->GetPointClicked(P);
+		pIn->GetPointClicked(Pi);
 	}
 	else
 	{
 		pOut->PrintMessage("This is not a valid variable name");
-		pIn->GetPointClicked(P);
+		pIn->GetPointClicked(Pi);
 	}
 
 	pOut->PrintMessage("ValueORVariable test, Click anywhere to start the test");
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(Pi);
 	pOut->ClearStatusBar();
 
 	OpType type = ValueORVariable(pIn->GetString(pOut));
@@ -71,25 +72,25 @@ int main()
 	if (type == VALUE_OP)
 	{
 		pOut->PrintMessage("This is a valid value");
-		pIn->GetPointClicked(P);
+		pIn->GetPointClicked(Pi);
 
 	}
 	else
 		if (type == VARIABLE_OP)
 		{
 			pOut->PrintMessage("This is a valid variable name");
-			pIn->GetPointClicked(P);
+			pIn->GetPointClicked(Pi);
 		}
 		else
 			if (type == INVALID_OP)
 			{
 				pOut->PrintMessage("This is not a valid valid value nor a variable name");
-				pIn->GetPointClicked(P);
+				pIn->GetPointClicked(Pi);
 			}
 
 	//Starting the input and output classes test
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 
 
 	///////////////////////////////////////////////////////////////////////////////////
@@ -98,7 +99,7 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////////
 
 	pOut->PrintMessage("TEST1: Drawing Tool bar and Status bar, Click anywhere to continue");
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 
 
 	///////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +109,7 @@ int main()
 	///////////////////////////////////////////////////////////////////////////////////
 
 	pOut->PrintMessage("TEST2: Now we will show that Output class can draw any statement in any status, Click anywhere to continue");
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 
 	/// 2.1- Assignment statement test
 	//Drawing assignment statements in all posible states
@@ -116,26 +117,26 @@ int main()
 	pOut->PrintMessage("Drawing Simple Assignment statements in ALL STATES, Click to continue");
 
 	//Drawing (normal) (empty) assignment statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ");
 
 	//Drawing (highlighted) (empty) assignment statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = ", true);
 
 	//Drawing a resized empty assignment statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = ");
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawAssign(Pi, 80, UI.ASSGN_HI, " = ");
 
 	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000");
 
 	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = 3000", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	///2.2- Variable assignment & single operator assignment
@@ -148,51 +149,51 @@ int main()
 	////////////
 
 	//Drawing (normal) (empty) assignment statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ");
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ");
 
 	//Drawing (highlighted) (empty) assignment statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x ", true);
 
 	//Drawing a resized empty assignment statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 80, UI.ASSGN_HI, " = x ");
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawAssign(Pi, 80, UI.ASSGN_HI, " = x ");
 
 	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ");
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ");
 
 	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x ", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 
 
 	//Drawing (normal) (empty) assignment statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ");
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ");
 
 	//Drawing (highlighted) (empty) assignment statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " = x + 3 ", true);
 
 	//Drawing a resized empty assignment statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawAssign(P, 100, UI.ASSGN_HI, " = x + 3 ");
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawAssign(Pi, 100, UI.ASSGN_HI, " = x + 3 ");
 
 	//Drawing edited (normal) (non-empty) assignment statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3");
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3");
 
 	//Drawing (highlighted) (non-empty) assignment statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawAssign(P, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawAssign(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, "Salary = x + 3", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 
@@ -205,26 +206,26 @@ int main()
 	////////////
 
 	//Drawing (normal) (empty) conditional statement --> STATE 1
-	P.x = 100;	P.y = 100;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawCondition(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing (highlighted) (empty) conditional statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawCondition(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
 
 	//Drawing a resized empty conditional statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawCondition(P, 100, UI.ASSGN_HI, " x = 3 ", false);
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawCondition(Pi, 100, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing edited (normal) (non-empty) conditional statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawCondition(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", false);
 
 	//Drawing (highlighted) (non-empty) conditional statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawCondition(P, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawCondition(Pi, UI.ASSGN_WDTH, UI.ASSGN_HI, " x = 3 ", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.4- Read statement test
@@ -235,26 +236,26 @@ int main()
 	//TODO: Add code to draw different (Read) statements here in ALL STATES
 	////////////
 
-	P.x = 100;	P.y = 100;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing (highlighted) (empty) Read statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
 
 	//Drawing a resized empty Read statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawRead(P, 150, UI.ASSGN_HI, " Read x ", false);
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawRead(Pi, 150, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawRead(P, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.5- Write statement test
@@ -265,26 +266,26 @@ int main()
 	//TODO: Add code to draw different (Write) statements here in ALL STATES
 	////////////
 
-	P.x = 100;	P.y = 100;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawWrite(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing (highlighted) (empty) Write statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawWrite(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
 
 	//Drawing a resized empty Write statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawWrite(P, 150, UI.ASSGN_HI, " Print x ", false);
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawWrite(Pi, 150, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing edited (normal) (non-empty) Write statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawWrite(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", false);
 
 	//Drawing (highlighted) (non-empty) Write statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawWrite(P, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawWrite(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Print x ", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 
@@ -296,26 +297,26 @@ int main()
 	//TODO: Add code to draw different (Start & End) statements here  in ALL STATES
 	////////////
 
-	P.x = 100;	P.y = 100;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ", false);
+	Pi.x = 100;	Pi.y = 100;
+	pOut->DrawStart(Pi, UI.START_WDTH, UI.START_HI, " Start ", false);
 
 	//Drawing (highlighted) (empty) Read statement --> STATE 2
-	P.x = 300;	P.y = 100;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " End ", true);
+	Pi.x = 300;	Pi.y = 100;
+	pOut->DrawStart(Pi, UI.START_WDTH, UI.START_HI, " End ", true);
 
 	//Drawing a resized empty Read statement
-	P.x = 100;	P.y = 200;
-	pOut->DrawStart(P, 200, UI.START_HI, " Start ", false);
+	Pi.x = 100;	Pi.y = 200;
+	pOut->DrawStart(Pi, 200, UI.START_HI, " Start ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
-	P.x = 100;	P.y = 300;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " Start ", false);
+	Pi.x = 100;	Pi.y = 300;
+	pOut->DrawStart(Pi, UI.START_WDTH, UI.START_HI, " Start ", false);
 
 	//Drawing (highlighted) (non-empty) Read statement --> STATE 4
-	P.x = 300;	P.y = 300;
-	pOut->DrawStart(P, UI.START_WDTH, UI.START_HI, " End ", true);
+	Pi.x = 300;	Pi.y = 300;
+	pOut->DrawStart(Pi, UI.START_WDTH, UI.START_HI, " End ", true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 
@@ -327,21 +328,39 @@ int main()
 	//TODO: Add code to draw different (Connectors) here:  Normal and Highlighted
 	////////////
 
-	P.x = 100;  P.y = 100;
-	P2.x = 100;  P2.y = 250;
-	pOut->DrawConnector(P, P2, false);
+	//Drawing normal connector
+	Pi.x = 100;  Pi.y = 100;
+	Pf.x = 100;  Pf.y = 200;
+	pOut->DrawConnector(Pi, Pf, pOut->direction::DOWN,false);
 
-	P.x = 150;  P.y = 100;
-	P2.x = 150;  P2.y = 250;
-	pOut->DrawConnector(P, P2, true);
+	//Drawing highlighted connector
+	Pi.x = 150;  Pi.y = 100;
+	Pf.x = 150;  Pf.y = 200;
+	pOut->DrawConnector(Pi, Pf, pOut->direction::DOWN,true);
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	//Drawing more complex connector (with a horizontal then vertical segments)
+	Pi.x = 100;	Pi.y = 250;
+	Pf.x = 150;  Pf.y = 350;
+	P.x = 150;    P.y = 250;
+	
+	pOut->DrawConnector(Pi, P, pOut->direction::NoDirection, false);
+	pOut->DrawConnector(P, Pf, pOut->direction::DOWN, false);
+
+	//Drawing more complex highlighted connector (with a horizontal then vertical segments)
+	Pi.x = 200;	Pi.y = 250;
+	Pf.x = 250;  Pf.y = 350;
+	P.x = 250;    P.y = 250;
+
+	pOut->DrawConnector(Pi, P, pOut->direction::NoDirection, true);
+	pOut->DrawConnector(P, Pf, pOut->direction::DOWN, true);
+
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	/// 2.8- Draw String TEST
 	//Drawing a String in a specific location
 	pOut->PrintMessage("Drawing A String, Click to continue");
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(Pi);
 	pOut->ClearStatusBar();
 	//Note: the function of this drawing is already implemented in Output class , you only need to call it
 
@@ -353,14 +372,14 @@ int main()
 
 	pOut->DrawString(400, 200, pIn->GetString(pOut));
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 3: Read strings and a value from the user
 	///////////////////////////////////////////////////////////////////////////////////
 	pOut->PrintMessage("TEST3: Now Time to test class Input, Click anywhere to continue");
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 
 	pOut->PrintMessage("Testing Input ability to read strings, values, variables and operators");
 
@@ -372,7 +391,7 @@ int main()
 	// 4- Read a (comparison operator) from the user and print it
 	////////////
 
-	pIn->GetPointClicked(P);	//Wait for any click
+	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
 
 	///////////////////////////////////////////////////////////////////////////////////
@@ -435,7 +454,7 @@ int main()
 
 	/// Exiting
 	pOut->PrintMessage("Action: EXIT, test is finished, click anywhere to exit");
-	pIn->GetPointClicked(P);
+	pIn->GetPointClicked(Pi);
 
 
 	delete pIn;

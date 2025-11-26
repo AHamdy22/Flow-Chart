@@ -15,6 +15,7 @@ public:
 
 	void CreateStatusBar(); //Creates status bar
 
+	enum direction { NoDirection, LEFT, RIGHT, UP, DOWN };
 	//TODO: Complete the following 2 functions
 	void CreateDesignToolBar();	//Tool bar of the design mode
 	void CreateSimulationToolBar(); //Tool bar of the simulation mode
@@ -34,8 +35,9 @@ public:
 	void DrawRead(Point Left, int width, int height, string Text, bool Selected);
 	void DrawWrite(Point Left, int width, int height, string Text, bool Selected);
 	void DrawCondition(Point Top, int width, int height, string Text, bool Selected);
-	void DrawConnector(Point start, Point end, bool Selected);
+	void DrawConnector(Point start, Point end, direction d,bool Selected);
 	
+
 
 	~Output();
 };
