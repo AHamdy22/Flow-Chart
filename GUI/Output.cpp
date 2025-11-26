@@ -20,8 +20,12 @@ Output::Output()
 	UI.HighlightColor = RED;
 	UI.MsgColor = NAVY;
 
-	UI.ASSGN_WDTH = 150;
+	UI.ASSGN_WDTH = 165;
 	UI.ASSGN_HI = 50;
+	UI.START_WDTH = 100;
+	UI.START_HI = 50;
+	UI.READ_WDTH = 100;
+	UI.READ_HI = 50;
 
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
@@ -251,7 +255,7 @@ void Output::DrawEnd(Point Left, int width, int height, string Text, bool Select
 	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 2), Left.y + (height / 2) - (stringheight / 2), Text);
 }
 
-void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected)
+void Output::DrawRead(Point Left, int width, int height, string Text, bool Selected=false)
 {
 	if (Selected)
 		pWind->SetPen(UI.HighlightColor, 3);
@@ -270,7 +274,7 @@ void Output::DrawRead(Point Left, int width, int height, string Text, bool Selec
 	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 1.5), Left.y + (height / 2) - (stringheight / 2), Text);
 }
 
-void Output::DrawWrite(Point Left, int width, int height, string Text, bool Selected)
+void Output::DrawWrite(Point Left, int width, int height, string Text, bool Selected=false)
 {
 	if (Selected)
 		pWind->SetPen(UI.HighlightColor, 3);
@@ -289,7 +293,7 @@ void Output::DrawWrite(Point Left, int width, int height, string Text, bool Sele
 	pWind->DrawString(Left.x + (width / 2) - (stringwidth / 1.5), Left.y + (height / 2) - (stringheight / 2), Text);
 }
 
-void Output::DrawCondition(Point Top, int width, int height, string Text, bool Selected)
+void Output::DrawCondition(Point Top, int width, int height, string Text, bool Selected = false)
 {
 	if (Selected)
 		pWind->SetPen(UI.HighlightColor, 3);
