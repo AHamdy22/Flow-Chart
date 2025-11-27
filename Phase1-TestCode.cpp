@@ -201,9 +201,9 @@ int main()
 	//Drawing Conditional statements in all posible states
 	pOut->PrintMessage("Drawing Conditional Statement in ALL STATES, Click to continue");
 
-	////////////
+	/////////////
 	//TODO: Add code to draw different (Conditional) statements here in ALL STATES
-	////////////
+	/////////////
 
 	//Drawing (normal) (empty) conditional statement --> STATE 1
 	Pi.x = 100;	Pi.y = 100;
