@@ -244,7 +244,7 @@ int main()
 	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
 
 	//Drawing a resized empty Read statement
-	Pi.x = 100;	Pi.y = 100;
+	Pi.x = 100;	Pi.y = 0;
 	pOut->DrawRead(Pi, 150, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
