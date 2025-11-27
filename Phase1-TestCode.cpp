@@ -240,11 +240,11 @@ int main()
 	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing (highlighted) (empty) Read statement --> STATE 2
-	Pi.x = 300;	Pi.y = 100;
+	Pi.x = 300;	Pi.y = 200;
 	pOut->DrawRead(Pi, UI.READ_WDTH, UI.ASSGN_HI, " Read x ", true);
 
 	//Drawing a resized empty Read statement
-	Pi.x = 100;	Pi.y = 200;
+	Pi.x = 100;	Pi.y = 100;
 	pOut->DrawRead(Pi, 150, UI.ASSGN_HI, " Read x ", false);
 
 	//Drawing edited (normal) (non-empty) Read statement --> STATE 3
