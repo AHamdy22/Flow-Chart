@@ -92,7 +92,6 @@ int main()
 	pOut->PrintMessage("This demo is to test input and output classes, Click anywhere to start the test");
 	pIn->GetPointClicked(Pi);	//Wait for any click
 
-
 	///////////////////////////////////////////////////////////////////////////////////
 	// TEST 1:	Create The FULL Tool bar, the drawing area, the output bar and the status bar	
 	//			This has already been done through the constrcutor of class Output
@@ -390,6 +389,31 @@ int main()
 	// 3- Read an (arithmatic operator) from the user and print it
 	// 4- Read a (comparison operator) from the user and print it
 	////////////
+
+	/////////////////->>>>>>>SAMIR
+	pOut->PrintMessage("Input test, Click anywhere to start the test");
+	pIn->GetPointClicked(Pi);
+
+	pOut->PrintMessage("GetValue, Click anywhere to start the test");
+	pIn->GetPointClicked(Pi);
+	pOut->ClearStatusBar();
+	pIn->GetValue(pOut);
+
+	pOut->PrintMessage("GetVariable, Click anywhere to start the test");
+	pIn->GetPointClicked(Pi);
+	pOut->ClearStatusBar();
+	pIn->GetVariable(pOut);
+
+	pOut->PrintMessage("GetArithOperator, Click anywhere to start the test");
+	pIn->GetPointClicked(Pi);
+	pOut->ClearStatusBar();
+	pIn->GetArithOperator(pOut);
+
+	pOut->PrintMessage("GetCompOperator, Click anywhere to start the test");
+	pIn->GetPointClicked(Pi);
+	pOut->ClearStatusBar();
+	pIn->GetCompOperator(pOut);
+	/////////////////->>>>>>
 
 	pIn->GetPointClicked(Pi);	//Wait for any click
 	pOut->ClearDrawArea();
