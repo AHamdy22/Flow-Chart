@@ -1,13 +1,12 @@
 #include "Output.h"
 
-
 Output::Output()
 {
 	//Initialize user interface parameters
 	UI.width = 1510;
-	UI.height = 600;
+	UI.height = 800;
 	UI.wx = 0;
-	UI.wy =0;
+	UI.wy = 0;
 
 	UI.AppMode = DESIGN;	//Design Mode is the default mode
 
@@ -66,7 +65,6 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 {
 	UI.AppMode = DESIGN;	//Design Mode
 
-
 	string MenuItemImages[DSN_ITM_CNT];
 	MenuItemImages[ITM_START] = "images\\start.jpg";
 	MenuItemImages[ITM_DECLARE] = "images\\declare.jpg";
@@ -93,16 +91,19 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 	//Draw menu item one image at a time
 	for (int i = ITM_START; i < ITM_SELECT; i++)
 		pWind->DrawImage(MenuItemImages[i], i *65, 5, UI.MenuItemWidth, 40);
+	//Draw the next 7 icons after a gap
 	int j = 0;
 	for (int i = ITM_SELECT; i < ITM_SAVE; i++)
 	{
 		pWind->DrawImage(MenuItemImages[i], 780 + 65 * j, 5, UI.MenuItemWidth, 40);
+		//where 780 is 650(The first 10 icons) + 130(the gap,which is equal to the size of 2 icons) 
 		j++;
 	}
 	int k = 0;
 	for (int i = ITM_SAVE; i < DSN_ITM_CNT; i++)
 	{
 		pWind->DrawImage(MenuItemImages[i], 1300 + 65 * k, 5, UI.MenuItemWidth, 40);
+		//where 1300 is 1235(The first 17 icons and the first gap) + 65(the second gap,which is equal to the size of 1 icon)
 		k++;
 	}
 	//Draw a line under the toolbar
@@ -115,7 +116,7 @@ void Output::CreateDesignToolBar() //Draws the Design Menu
 void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 {
 	UI.AppMode = SIMULATION;	//Simulation Mode
-
+	ClearDesignToolBar();
 
 	string SimMenuItemImages[SIM_ITM_CNT];
 	SimMenuItemImages[ITM_VALIDATE] = "images\\validate.jpg";
@@ -125,6 +126,7 @@ void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 
 	for (int i = 0; i < SIM_ITM_CNT - 1; i++)
 		pWind->DrawImage(SimMenuItemImages[i], i * 65, 5, UI.MenuItemWidth, 40);
+	//Draw Exit button at the far right
 	pWind->DrawImage(SimMenuItemImages[ITM_EXIT2], 22 * 65, 5, UI.MenuItemWidth, 40);
 
 	//Draw a line under the toolbar
@@ -155,6 +157,20 @@ void Output::ClearOutputBar()
 	pWind->SetBrush(LIGHTCYAN);
 	pWind->DrawRectangle(UI.DrawingAreaWidth, UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
 }
+void Output::ClearDesignToolBar()
+{
+	//Clear Design tool bar by drawing a filled rectangle after switching to Simulation mode
+	pWind->SetPen(WHITE, 2);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+}
+void Output::ClearSimulationToolBar()
+{
+	//Clear Simulation tool bar by drawing a filled rectangle after switching to Design mode
+	pWind->SetPen(WHITE, 2);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::PrintMessage(string msg)	//Prints a message on status bar
 {
@@ -165,6 +181,7 @@ void Output::PrintMessage(string msg)	//Prints a message on status bar
 	pWind->DrawString(10, UI.height - (int) (UI.StatusBarHeight/1.1), msg);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+
 void Output::DrawString(const int iX, const int iY, const string Text)
 {
 	pWind->SetPen(BLACK, 2);
@@ -187,7 +204,7 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 		pWind->SetPen(UI.DrawColor,3);	//use normal color
 
 	//Draw the statement block rectangle
-	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height,FRAME);
 		
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
@@ -227,7 +244,7 @@ void Output::DrawStart(Point Left, int width, int height, string Text, bool Sele
 		pWind->SetPen(UI.DrawColor, 3);
 
 
-	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height, FRAME);
 
 
 	pWind->SetPen(BLACK, 2);
@@ -247,7 +264,7 @@ void Output::DrawEnd(Point Left, int width, int height, string Text, bool Select
 		pWind->SetPen(UI.DrawColor, 3);
 
 
-	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height, FRAME);
 
 
 	pWind->SetPen(BLACK, 2);
