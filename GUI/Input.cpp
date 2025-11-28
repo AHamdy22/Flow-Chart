@@ -97,7 +97,6 @@ string Input::GetCompOperator(Output* pO) const
 ActionType Input::GetUserAction() const
 {	
 	// This function reads the position where the user clicks to determine the desired action
-
 	int x,y;
 	pWind->WaitMouseClick(x, y);	// Get the coordinates of the user click
 
@@ -131,9 +130,9 @@ ActionType Input::GetUserAction() const
 			case ITM_CUT + 2:return CUT;
 			case ITM_PASTE + 2:return PASTE;
 			case ITM_SWITCH_TO_SIM + 2:return SWITCH_SIM_MODE;
-			case ITM_SAVE + 10:return SAVE;	// Where 10 is the distance between the first 10 icons & the last 3 icons
-			case ITM_LOAD + 10:return LOAD;
-			case ITM_EXIT1 + 10:return EXIT;
+			case ITM_SAVE + 3:return SAVE;	// Where 3 is the total gap in the design tool bar
+			case ITM_LOAD + 3:return LOAD;
+			case ITM_EXIT1 + 3:return EXIT;
 			default: return DSN_TOOL;
 			}
 
@@ -164,7 +163,7 @@ ActionType Input::GetUserAction() const
 			case ITM_VALIDATE:return VALIDATE;
 			case ITM_RUN:return RUN;
 			case ITM_SWITCH_TO_DESIGN:return SWITCH_DSN_MODE;
-			case ITM_EXIT2:return EXIT;
+			case ITM_EXIT2 + 19:return EXIT; //where 19 is the gap between the switch icon and the exit icon
 			default: return SIM_TOOL;
 			}
 		}

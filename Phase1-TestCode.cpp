@@ -292,9 +292,6 @@ int main()
 	//Drawing Start & End statements in all posible states
 	pOut->PrintMessage("Drawing Start & End Statements in ALL STATES, Click to continue");
 
-	////////////
-	//TODO: Add code to draw different (Start & End) statements here  in ALL STATES
-	////////////
 
 	Pi.x = 100;	Pi.y = 100;
 	pOut->DrawStart(Pi, UI.START_WDTH, UI.START_HI, " Start ", false);
@@ -323,9 +320,6 @@ int main()
 	//Drawing Connector in all posible states
 	pOut->PrintMessage("Drawing Connector in Normal and Highlighted STATES, Click to continue");
 
-	////////////
-	//TODO: Add code to draw different (Connectors) here:  Normal and Highlighted
-	////////////
 
 	//Drawing normal connector
 	Pi.x = 100;  Pi.y = 100;
@@ -436,35 +430,35 @@ int main()
 		switch (ActType)
 		{
 		case ADD_START:
-			pOut->PrintMessage("Action: add start statement , Click anywhere");
+			pOut->PrintMessage("Action: add a start statement , Click anywhere");
 			break;
 
 		case ADD_DECLARE_VARIABLE:
-			pOut->PrintMessage("Action: add variable declaration statement , Click anywhere");
+			pOut->PrintMessage("Action: add a variable declaration statement , Click anywhere");
 			break;
 
 		case ADD_VALUE_ASSIGN:
-			pOut->PrintMessage("Action: add value assignment statement , Click anywhere");
+			pOut->PrintMessage("Action: add a value assignment statement , Click anywhere");
 			break;
 
 		case ADD_VAR_ASSIGN:
-			pOut->PrintMessage("Action: add variable assignment statement , Click anywhere");
+			pOut->PrintMessage("Action: add a variable assignment statement , Click anywhere");
 			break;
 
 		case ADD_OPER_ASSIGN:
-			pOut->PrintMessage("Action: add operator assignment statement , Click anywhere");
+			pOut->PrintMessage("Action: add an operator assignment statement , Click anywhere");
 			break;
 
 		case ADD_CONDITION:
-			pOut->PrintMessage("Action: add conditional statement , Click anywhere");
+			pOut->PrintMessage("Action: add a conditional statement , Click anywhere");
 			break;
 
 		case ADD_READ:
-			pOut->PrintMessage("Action: add read statement , Click anywhere");
+			pOut->PrintMessage("Action: add a read statement , Click anywhere");
 			break;
 
 		case ADD_WRITE:
-			pOut->PrintMessage("Action: add write statement , Click anywhere");
+			pOut->PrintMessage("Action: add a write statement , Click anywhere");
 			break;
 
 		case ADD_CONNECTOR:
@@ -472,11 +466,11 @@ int main()
 			break;
 
 		case ADD_END:
-			pOut->PrintMessage("Action: add end statement , Click anywhere");
+			pOut->PrintMessage("Action: add an end statement , Click anywhere");
 			break;
 
 		case SELECT:
-			pOut->PrintMessage("Action: select action, Click anywhere");
+			pOut->PrintMessage("Action: select an action, Click anywhere");
 			break;
 
 		case EDIT_STAT:
@@ -499,9 +493,43 @@ int main()
 			pOut->PrintMessage("Action: paste a statement, Click anywhere");
 			break;
 
+		case SAVE:
+			pOut->PrintMessage("Action: save the whole graph to a file, Click anywhere");
+			break;
+
+		case LOAD:
+			pOut->PrintMessage("Action: load a graph from a file, Click anywhere");
+			break;
+
 		case SWITCH_SIM_MODE:
 			pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
-			pOut->CreateSimulationToolBar(); // THIS TESTS Output::CreateSimulationToolBar() function //////
+			pOut->CreateSimulationToolBar();
+			break;
+
+		case VALIDATE:
+			pOut->PrintMessage("Action: validate the flowchart, Click anywhere");
+			break;
+
+		case RUN:
+			pOut->PrintMessage("Action: run the flowchart, Click anywhere");
+			break;
+
+		case SWITCH_DSN_MODE:
+			pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");
+			pOut->ClearSimulationToolBar();
+			pOut->CreateDesignToolBar();
+			break;
+
+		case SIM_TOOL:
+			pOut->PrintMessage("Action: a click on the Simulation Tool Bar, Click anywhere");
+			break;
+
+		case DRAWING_AREA:
+			pOut->PrintMessage("Action: a click on the Drawing Area, Click anywhere");
+			break;
+
+		case OUTPUT_AREA:
+			pOut->PrintMessage("Action: a click on the Output Area, Click anywhere");
 			break;
 
 		case STATUS:
@@ -511,14 +539,6 @@ int main()
 		case DSN_TOOL:
 			pOut->PrintMessage("Action: a click on the Design Tool Bar, Click anywhere");
 			break;
-
-		
-
-		case SWITCH_DSN_MODE:
-			pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");
-			pOut->CreateDesignToolBar();
-			break;
-
 
 		case EXIT:
 			break;

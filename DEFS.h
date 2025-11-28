@@ -54,25 +54,25 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
-	ITM_START,
-	ITM_DECLARE,
+	ITM_START,		//Start statement
+	ITM_DECLARE,	//Declare variable statement
 	ITM_VALUE_ASSIGN,//simple assignment statement
-	ITM_VARIABLE_ASSIGN,
-	ITM_OPERATOR_ASSIGN,
+	ITM_VARIABLE_ASSIGN,//variable assignment statement
+	ITM_OPERATOR_ASSIGN,//operator assignment statement
 	ITM_COND,		//conditional statement
-	ITM_READ,
-	ITM_WRITE,
-	ITM_CONNECTOR,
-	ITM_END,
-	ITM_SELECT,
-	ITM_EDIT,
-	ITM_DELETE,
-	ITM_COPY,
-	ITM_CUT,
-	ITM_PASTE,
-	ITM_SWITCH_TO_SIM,
-	ITM_SAVE,
-	ITM_LOAD,
+	ITM_READ,		//Read statement
+	ITM_WRITE,		//Write statement
+	ITM_CONNECTOR,	//Connector
+	ITM_END,		//End statement
+	ITM_SELECT,		//Select
+	ITM_EDIT,		//Edit
+	ITM_DELETE,		//Delete
+	ITM_COPY,		//Copy
+	ITM_CUT,		//Cut
+	ITM_PASTE,		//Paste
+	ITM_SWITCH_TO_SIM, //Switch to Simulation
+	ITM_SAVE,		//Save
+	ITM_LOAD,		//Load
 	ITM_EXIT1,		//Exit
 	
 
