@@ -435,20 +435,73 @@ int main()
 
 		switch (ActType)
 		{
+		case ADD_START:
+			pOut->PrintMessage("Action: add start statement , Click anywhere");
+			break;
+
+		case ADD_DECLARE_VARIABLE:
+			pOut->PrintMessage("Action: add variable declaration statement , Click anywhere");
+			break;
+
 		case ADD_VALUE_ASSIGN:
 			pOut->PrintMessage("Action: add value assignment statement , Click anywhere");
+			break;
+
+		case ADD_VAR_ASSIGN:
+			pOut->PrintMessage("Action: add variable assignment statement , Click anywhere");
+			break;
+
+		case ADD_OPER_ASSIGN:
+			pOut->PrintMessage("Action: add operator assignment statement , Click anywhere");
 			break;
 
 		case ADD_CONDITION:
 			pOut->PrintMessage("Action: add conditional statement , Click anywhere");
 			break;
 
+		case ADD_READ:
+			pOut->PrintMessage("Action: add read statement , Click anywhere");
+			break;
+
+		case ADD_WRITE:
+			pOut->PrintMessage("Action: add write statement , Click anywhere");
+			break;
+
 		case ADD_CONNECTOR:
 			pOut->PrintMessage("Action: add a connector , Click anywhere");
 			break;
 
+		case ADD_END:
+			pOut->PrintMessage("Action: add end statement , Click anywhere");
+			break;
+
 		case SELECT:
 			pOut->PrintMessage("Action: select action, Click anywhere");
+			break;
+
+		case EDIT_STAT:
+			pOut->PrintMessage("Action: edit a statement, Click anywhere");
+			break;
+
+		case DEL:
+			pOut->PrintMessage("Action: delete a statement, Click anywhere");
+			break;
+
+		case COPY:
+			pOut->PrintMessage("Action: copy a statement, Click anywhere");
+			break;
+			
+		case CUT:
+			pOut->PrintMessage("Action: cut a statement, Click anywhere");
+			break;
+
+		case PASTE:
+			pOut->PrintMessage("Action: paste a statement, Click anywhere");
+			break;
+
+		case SWITCH_SIM_MODE:
+			pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
+			pOut->CreateSimulationToolBar(); // THIS TESTS Output::CreateSimulationToolBar() function //////
 			break;
 
 		case STATUS:
@@ -459,10 +512,7 @@ int main()
 			pOut->PrintMessage("Action: a click on the Design Tool Bar, Click anywhere");
 			break;
 
-		case SWITCH_SIM_MODE:
-			pOut->PrintMessage("Action: Switch to Simulation Mode, creating simualtion tool bar");
-			pOut->CreateSimulationToolBar(); // THIS TESTS Output::CreateSimulationToolBar() function //////
-			break;
+		
 
 		case SWITCH_DSN_MODE:
 			pOut->PrintMessage("Action: Switch to Design Mode, creating Design tool bar");

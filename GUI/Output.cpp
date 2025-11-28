@@ -124,7 +124,7 @@ void Output::CreateSimulationToolBar() //Draws the Simulation Menu
 	SimMenuItemImages[ITM_EXIT2] = "images\\exit.jpg";
 
 	for (int i = 0; i < SIM_ITM_CNT - 1; i++)
-		pWind->DrawImage(SimMenuItemImages[i], i * 65, 5, UI.MenuItemWidth, 40);
+	pWind->DrawImage(SimMenuItemImages[i], i * 65, 5, UI.MenuItemWidth, 40);
 	pWind->DrawImage(SimMenuItemImages[ITM_EXIT2], 22 * 65, 5, UI.MenuItemWidth, 40);
 
 	//Draw a line under the toolbar
@@ -187,7 +187,7 @@ void Output::DrawAssign(Point Left, int width, int height, string Text, bool Sel
 		pWind->SetPen(UI.DrawColor,3);	//use normal color
 
 	//Draw the statement block rectangle
-	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawRectangle(Left.x, Left.y, Left.x + width, Left.y + height,FRAME);
 		
 	//Write statement text
 	pWind->SetPen(BLACK, 2);
@@ -227,7 +227,7 @@ void Output::DrawStart(Point Left, int width, int height, string Text, bool Sele
 		pWind->SetPen(UI.DrawColor, 3);
 
 
-	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height, FRAME);
 
 
 	pWind->SetPen(BLACK, 2);
@@ -247,7 +247,7 @@ void Output::DrawEnd(Point Left, int width, int height, string Text, bool Select
 		pWind->SetPen(UI.DrawColor, 3);
 
 
-	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height);
+	pWind->DrawEllipse(Left.x, Left.y, Left.x + width, Left.y + height, FRAME);
 
 
 	pWind->SetPen(BLACK, 2);

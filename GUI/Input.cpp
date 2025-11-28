@@ -52,7 +52,7 @@ string Input::GetVariable(Output* pO) const
 	// To read a “variable name” from the user (from the keyboard)
 	// It does not return before taking a valid variable name
 
-	pO->PrintMessage("Please enter a name");
+	pO->PrintMessage("Please enter a variable name");
 	string name;
 	while (1)
 	{
@@ -68,14 +68,14 @@ char Input::GetArithOperator(Output* pO) const
 	// To read an arithmetic operator (+, -, * or /) from the user
 	// It does not return before taking a valid arithmetic operator
 
-	pO->PrintMessage("Please enter a Operator");
+	pO->PrintMessage("Please enter an arithmetic operator");
 	string Operator;
 	while (1)
 	{
 		Operator = GetString(pO);
 		if (Operator.size() == 1 && (Operator[0] == '+' || Operator[0] == '-' || Operator[0] == '*' || Operator[0] == '/'))
 			return Operator[0];
-		pO->PrintMessage("Please enter a valid Operator");
+		pO->PrintMessage("Please enter a valid arithmetic operator");
 	}
 }
 
@@ -83,14 +83,14 @@ string Input::GetCompOperator(Output* pO) const
 {
 	// Similar to the previous function but for comparison operators (==, !=, <, <=, > or >=)
 
-	pO->PrintMessage("Please enter a CompOperator");
+	pO->PrintMessage("Please enter a comparison operator");
 	string Comparison;
 	while (1)
 	{
 		Comparison = GetString(pO);
 		if (Comparison == "==" || Comparison == "!=" || Comparison == "<" || Comparison == "<=" || Comparison == ">" || Comparison == ">=")
 			return Comparison;
-		pO->PrintMessage("Please enter a valid CompOperator");
+		pO->PrintMessage("Please enter a valid comparison operator");
 	}
 }
 
@@ -106,7 +106,7 @@ ActionType Input::GetUserAction() const
 		// [1] If user clicks on the Toolbar
 		if ( y >= 0 && y < UI.ToolBarHeight)
 		{	
-			// Check whick Menu item was clicked
+			// Check which Menu item was clicked
 			// This assumes that menu items are lined up horizontally
 			int ClickedItem = (x / 65);
 
